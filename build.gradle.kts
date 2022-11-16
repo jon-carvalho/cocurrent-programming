@@ -22,6 +22,7 @@ sourceSets {
 	}
 }
 
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -34,8 +35,9 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
 	compileOnly("org.projectlombok:lombok:0.11.0")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-	// https://mvnrepository.com/artifact/junit/junit
-	testImplementation("junit:junit:4.13.2")
+	testImplementation("org.junit.jupiter:junit-jupiter-api:5.4.2")
+	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.4.2")
+
 
 
 
@@ -51,3 +53,5 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
+
+
