@@ -16,6 +16,12 @@ repositories {
 	mavenCentral()
 }
 
+sourceSets {
+	main {
+		java.srcDirs("src/main/java", "src/main/kotlin")
+	}
+}
+
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
@@ -23,11 +29,15 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.projectlombok:lombok:1.18.20")
-	implementation("org.projectlombok:lombok:1.18.20")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	// https://mvnrepository.com/artifact/org.projectlombok/lombok
 	compileOnly("org.projectlombok:lombok:0.11.0")
+	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+	// https://mvnrepository.com/artifact/junit/junit
+	testImplementation("junit:junit:4.13.2")
+
+
 
 }
 

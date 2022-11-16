@@ -24,11 +24,7 @@ class KotlinImperativeController {
         println("Vão ser feitas " + randomNumber + " requisições")
         println("EXIBINDO LISTA => " )
         for (i in 1..randomNumber){
-            response += ( "[" + "\n" +
-                    "     " +  "Id: " + kotlinImperativeService.findById(i).get().id + "\n" +
-                    "     " +  "Account Owner: " + kotlinImperativeService.findById(i).get().accountOwner + "\n" +
-                    "     " +  "Payback Value: " + kotlinImperativeService.findById(i).get().paybackValue + "\n" +
-                    "]" + "\n")
+            response += kotlinImperativeService.findById(i)
         }
 
         print(response)
