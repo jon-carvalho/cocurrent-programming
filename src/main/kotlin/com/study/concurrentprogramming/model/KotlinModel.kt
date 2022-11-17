@@ -4,7 +4,7 @@ import javax.persistence.*
 
 @Entity
 @Table(name = "PAYBACK")
-data class ForAllModel (
+data class KotlinModel (
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     var id: Int,

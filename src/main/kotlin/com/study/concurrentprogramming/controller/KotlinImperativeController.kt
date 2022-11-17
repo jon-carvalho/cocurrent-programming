@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.util.*
 import  kotlin.random.Random
+import kotlin.system.measureTimeMillis
 
 @RestController
 @RequestMapping("/imperative")
@@ -17,16 +18,24 @@ class KotlinImperativeController {
     lateinit var kotlinImperativeService: KotlinImperativeService
 
     @GetMapping
-    fun getAllValues(){
-        val randomNumber = Random.nextInt(1, 15)
-        var response = ""
+    fun getAllValues(): MutableList<String>{
+//        val randomNumber = Random.nextInt(1, 15)
+        val randomNumber = 10
+        var response = mutableListOf<String>()
 
-        println("Vão ser feitas " + randomNumber + " requisições")
-        println("EXIBINDO LISTA => " )
-        for (i in 1..randomNumber){
-            response += kotlinImperativeService.findById(i)
+        val time = measureTimeMillis {
+
+            println()
+            println(">>>Starting Kotlin Imperative the requests")
+            for (i in 1..randomNumber) {
+                response += kotlinImperativeService.findById(i)
+            }
+
         }
+        println(response)
+        print(">>> Kotlin Imperative requests took " + time + " milliseconds")
 
-        print(response)
+        return response
+
     }
 }
